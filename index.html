@@ -69,12 +69,15 @@
 	&lt;div class="tab2"&gt;Some content for tab 2.&lt;/div&gt;	
 	&lt;div class="tab3"&gt;Some content for tab 3.&lt;/div&gt;	
 	&lt;div class="tab4"&gt;Some content for tab 4.&lt;/div&gt;	
-&lt;/div&gt;</pre></code>
+&lt;/div&gt;
+			</pre></code>
 			<p>Example JavaScript / jQuery:</p>
-			<code><pre>$(".my-tab").tabs({
+			<code><pre>
+$(".my-tab").tabs({
 	activeClass  : "active",
 	contentClass : "my-tab-content"
-});</pre></code>
+});
+			</pre></code>
 			<p>Now lets have a look at a working example:</p>
 			<ul class="tabs">
 				<li><a href="#tab1">Tab 1</a></li>
@@ -92,30 +95,30 @@
 			<h2>Tooltip Plugin</h2>
 			<code><pre>
 $("jQuery Selector").tooltip({
-	cls      : "tooltip",       // Class of the DOM-element
-	text     : ".tooltip-text", // Selector of the tooltip text element
-	delay    : 100,             // Delay in showing the tooltip
-	fade     : 100,             // Fade time in microseconds
-	margin   : 3,               // Space surrounding target element
-	position : "top",           // Position in relation to target element (top, right, bottom or left)
-	size     : "normal"         // Size of the tooltip (normal or large)
+	elClass   : "tooltip",      // Class of the DOM-element
+	textClass : "tooltip-text", // Selector of the tooltip text element
+	delay     : 100,            // Delay in showing the tooltip
+	fade      : 100,            // Fade time in microseconds
+	margin    : 3,              // Space surrounding target element
+	position  : "top",          // Position in relation to target element (top, right, bottom or left)
+	size      : "normal"        // Size of the tooltip (normal or large)
 });
-</pre></code>
+			</pre></code>
 			<p>Enough theory, lets see the tooltip in action:</p>
 			<p>
-				<span class="top">Top<span class="tooltip-text">Some text on top of the element</span></span>
-				<span class="right">Right<span class="tooltip-text">Some text on the right side of the element</span></span>
-				<span class="bottom">Bottom<span class="tooltip-text">Some text on the bottom of the element</span></span>
-				<span class="left">Left<span class="tooltip-text">Some text on the left side of the element</span></span>
+				<span class="top" title="Some text on top of the element">Top</span>
+				<span class="right" title="Some text on the right side of the element">Right</span>
+				<span class="bottom" title="Some text on the bottom of the element">Bottom</span>
+				<span class="left" title="Some text on the left side of the element">Left</span>
 			</p>
 			<p>Or change the options to get a different result:</p>
 			<p>
-				<span class="top-large">Different Example<span class="tooltip-text">Yet another tooltip text for this larger example</span></span>
+				<span class="top-large" title="Yet another tooltip text for this larger example">Different Example</span>
 			</p>
 			<hr />
-			<p>To see the source code, visit the <a href="https://github.com/Mytho/jquery.plugins.js">GitHub Repository</a>.</p>
+			<p>To see the source code, visit the <a href="https://github.com/Mytho/jQuery-Plugin-Collection">GitHub Repository</a>.</p>
 		</div>
-		<div id="footer"><a href="https://raw.github.com/Mytho/jquery.plugins.js/master/license.txt">Copyright &copy; 2012 T. Zengerink</a></div>
+		<div id="footer"><a href="https://raw.github.com/Mytho/jQuery-Plugin-Collection/master/license.txt">Copyright &copy; 2012 T. Zengerink</a></div>
 		<script type="text/javascript" src="jquery.min.js" charset="utf8"></script>
 		<script type="text/javascript" src="jquery.plugins.min.js" charset="utf8"></script>
 		<script type="text/javascript">

@@ -72,16 +72,15 @@
 
 		var tooltip = {},
 			defaults = {
-				cls      : "tooltip",       // Class of the DOM-element
-				text     : ".tooltip-text", // Selector of the tooltip text element
-				delay    : 100,             // Delay in showing the tooltip
-				fade     : 100,             // Fade time in microseconds
-				margin   : 3,               // Space surrounding target element
-				position : "top",           // Position in relation to target element (top, right, bottom or left)
-				size     : "normal"         // Size of the tooltip (normal or large)
+				elClass  : "tooltip", // Class of the DOM-element
+				delay    : 100,       // Delay in showing the tooltip
+				fade     : 100,       // Fade time in microseconds
+				margin   : 3,         // Space surrounding target element
+				position : "top",     // Position in relation to target element (top, right, bottom or left)
+				size     : "normal"   // Size of the tooltip (normal or large)
 			},
 			options = $.extend({}, defaults, options),
-			uniqueId = [options.cls, "-", (++unique).toString()].join(""),
+			uniqueId = [options.elClass, "-", (++unique).toString()].join(""),
 			selector = ["#", uniqueId].join(""),
 			timer;
 
@@ -89,10 +88,11 @@
 		// -------
 
 		var construct = function(){
-			$("<div />").attr("id", uniqueId).addClass([options.cls, options.size].join(" ")).appendTo("body").hide();
+			$("<div />").attr("id", uniqueId).addClass([options.elClass, options.size].join(" ")).appendTo("body").hide();
 			$("<div />").addClass("arrow").appendTo(selector);
 			$("<div />").addClass("content").appendTo(selector);
-			$(selector).find(".content").html(target.find(options.text).html());
+			$(selector).find(".content").html(target.attr("title"));
+			target.removeAttr("title");
 		};
 
 		var destruct = function(){
