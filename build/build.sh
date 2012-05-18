@@ -17,15 +17,15 @@ CSS_CAT="$DIR/../jquery.plugins.css"
 CSS_MIN="$DIR/../jquery.plugins.min.css"
 
 build() {
-	"$DIR/concat.sh" "$1" "$2" "$3"
-	"$DIR/minify.sh" "$1" "$3" "$4"
+	"$DIR/concat.sh" "$1" "$2"
+	"$DIR/minify.sh" "$2" "$3"
 }
 
 if [ "$1" = "-c" ]; then
-	build -c "$CSS_DIR" "$CSS_CAT" "$CSS_MIN"
+	build "$CSS_DIR" "$CSS_CAT" "$CSS_MIN"
 elif [ "$1" = "-j" ]; then
-	build -j "$JS_DIR" "$JS_CAT" "$JS_MIN"
+	build "$JS_DIR" "$JS_CAT" "$JS_MIN"
 else
-	build -c "$CSS_DIR" "$CSS_CAT" "$CSS_MIN"
-	build -j "$JS_DIR" "$JS_CAT" "$JS_MIN"
+	build "$CSS_DIR" "$CSS_CAT" "$CSS_MIN"
+	build "$JS_DIR" "$JS_CAT" "$JS_MIN"
 fi

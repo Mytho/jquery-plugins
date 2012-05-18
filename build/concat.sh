@@ -11,14 +11,13 @@ DIR="$( cd "$( dirname "$0" )" && pwd)"
 concat() {
 	TMP="/tmp/concat.tmp"
 	for FILE in `find "$1" -type f`; do
-		echo -e "Concatinating: $(basename "$FILE")"
 		cat "$FILE" >> "$TMP"
 	done
 	mv "$TMP" "$2"
 }
 
-if [ "$1" = "-c" ]; then
-	concat $2 $3
-elif [ "$1" = "-j" ]; then
-	concat $2 $3
+if [ "$#" = 2 ]; then
+	concat $1 $2
+else
+	echo -e "Usage: $0 [source-directory] [destination-file]"
 fi
