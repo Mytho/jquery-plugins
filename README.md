@@ -55,9 +55,13 @@ and JavaScript / jQuery:
 jquery.tooltip.js
 -----------------
 
+Example HTML:
+
+	<div class="my-element" title="This is my tooltip text">Hover Me!</div>
+
 Example usage:
 
-    $("jQuery Selector").tooltip({
+    $(".my-element").tooltip({
 		elClass  : "tooltip", // Class of the DOM-element
 		delay    : 100,       // Delay in showing the tooltip
 		fade     : 100,       // Fade time in microseconds
