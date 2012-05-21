@@ -74,7 +74,7 @@
 $(".accordion").accordion({
 	activeClass    : "active", // Class of active element
 	activateFirst  : true,     // Activate first element initialy
-	animationSpeed : 200       // Animation speed in miliseconds
+	animationSpeed : 100       // Animation speed in miliseconds
 });
 			</pre></code>
 			<p>And now.. A working example:</p>
@@ -129,13 +129,12 @@ $(".my-tab").tabs({
 			<h2>Tooltip Plugin</h2>
 			<code><pre>
 $("jQuery Selector").tooltip({
-	elClass   : "tooltip",      // Class of the DOM-element
-	textClass : "tooltip-text", // Selector of the tooltip text element
-	delay     : 100,            // Delay in showing the tooltip
-	fade      : 100,            // Fade time in microseconds
-	margin    : 3,              // Space surrounding target element
-	position  : "top",          // Position in relation to target element (top, right, bottom or left)
-	size      : "normal"        // Size of the tooltip (normal or large)
+	elClass  : "tooltip", // Class of the DOM-element
+	delay    : 100,       // Delay in showing the tooltip
+	fade     : 100,       // Fade time in microseconds
+	margin   : 3,         // Space surrounding target element
+	position : "top",     // Position in relation to target element (top, right, bottom or left)
+	size     : "normal"   // Size of the tooltip (normal or large)
 });
 			</pre></code>
 			<p>Enough theory, lets see the tooltip in action:</p>

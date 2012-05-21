@@ -13,7 +13,7 @@
 				defaults = {
 					activeClass    : "active", // Class of active element
 					activateFirst  : true,     // Activate first element initialy
-					animationSpeed : 200       // Animation speed in miliseconds
+					animationSpeed : 100       // Animation speed in miliseconds
 				},
 				options = $.extend({}, defaults, opts);
 

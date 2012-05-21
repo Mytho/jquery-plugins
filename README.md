@@ -21,7 +21,11 @@ Example HTML:
 
 Example JavaScript / jQuery:
 
-    $(".accordion").accordion();
+	$(".accordion").accordion({
+		activeClass    : "active", // Class of active element
+		activateFirst  : true,     // Activate first element initialy
+		animationSpeed : 100       // Animation speed in miliseconds
+	});
 
 jquery.tabs.js
 --------------
@@ -54,13 +58,12 @@ jquery.tooltip.js
 Example usage:
 
     $("jQuery Selector").tooltip({
-		cls      : "tooltip",       // Class of the DOM-element
-		text     : ".tooltip-text", // Selector of the tooltip text element
-		delay    : 100,             // Delay in showing the tooltip
-		fade     : 100,             // Fade time in microseconds
-		margin   : 3,               // Space surrounding target element
-		position : "top",           // Position in relation to target element (top, right, bottom or left)
-		size     : "normal"         // Size of the tooltip (normal or large)
+		elClass  : "tooltip", // Class of the DOM-element
+		delay    : 100,       // Delay in showing the tooltip
+		fade     : 100,       // Fade time in microseconds
+		margin   : 3,         // Space surrounding target element
+		position : "top",     // Position in relation to target element (top, right, bottom or left)
+		size     : "normal"   // Size of the tooltip (normal or large)
     });
 
 To see the source code, visit the [Github Repository](https://github.com/Mytho/jquery.plugins.js).
