@@ -55,6 +55,40 @@
 		<div id="page">
 			<h1>jQuery Plugin Collection</h1>
 			<p>A collection of jQuery plugins.</p>
+			<h2>Accordion Plugin</h2>
+			<p>Example HTML:</p>
+			<code><pre>
+&lt;div class="accordion"&gt;
+	&lt;a href="#item1"&gt;Item 1&lt;/a&gt;
+	&lt;div class="item1"&gt;This is the content for item 1&lt;/div&gt;
+	&lt;a href="#item2"&gt;Item 2&lt;/a&gt;
+	&lt;div class="item2"&gt;This is the content for item 2&lt;/div&gt;
+	&lt;a href="#item3"&gt;Item 3&lt;/a&gt;
+	&lt;div class="item3"&gt;This is the content for item 3&lt;/div&gt;
+	&lt;a href="#item4"&gt;Item 4&lt;/a&gt;
+	&lt;div class="item4"&gt;This is the content for item 4&lt;/div&gt;
+&lt;/div&gt;
+			</pre></code>
+			<p>Example JavaScript / jQuery</p>
+			<code><pre>
+$(".accordion").accordion({
+	activeClass    : "active", // Class of active element
+	activateFirst  : true,     // Activate first element initialy
+	animationSpeed : 200       // Animation speed in miliseconds
+});
+			</pre></code>
+			<p>And now.. A working example:</p>
+			<div class="accordion">
+				<a href="#item1">Item 1</a>
+				<div class="item1">This is the content for item 1</div>
+				<a href="#item2">Item 2</a>
+				<div class="item2">This is the content for item 2</div>
+				<a href="#item3">Item 3</a>
+				<div class="item3">This is the content for item 3</div>
+				<a href="#item4">Item 4</a>
+				<div class="item4">This is the content for item 4</div>
+			</div>
+			<hr />
 			<h2>Tabs Plugin</h2>
 			<p>Example HTML:</p>
 			<code><pre>
@@ -123,6 +157,7 @@ $("jQuery Selector").tooltip({
 		<script type="text/javascript" src="jquery.plugins.min.js" charset="utf8"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
+				$(".accordion").accordion();
 				// Tabs
 				$(".tabs").tabs();
 				// Tooltip

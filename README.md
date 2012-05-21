@@ -3,6 +3,26 @@ jQuery Plugin Collection
 
 A collection of jQuery plugins.
 
+jquery.accordion.js
+-------------------
+
+Example HTML:
+
+	<div class="accordion">
+		<a href="#item1">Item 1</a>
+		<div class="item1">This is the content for item 1</div>
+		<a href="#item2">Item 2</a>
+		<div class="item2">This is the content for item 2</div>
+		<a href="#item3">Item 3</a>
+		<div class="item3">This is the content for item 3</div>
+		<a href="#item4">Item 4</a>
+		<div class="item4">This is the content for item 4</div>
+	</div>
+
+Example JavaScript / jQuery:
+
+    $(".accordion").accordion();
+
 jquery.tabs.js
 --------------
 

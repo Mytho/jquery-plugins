@@ -3,7 +3,7 @@
  *
  * Copyright 2012, T. Zengerink
  * Licensed under MIT License
- * See: https://raw.github.com/Mytho/jquery.tooltip.js/master/license.txt
+ * See: https://raw.github.com/Mytho/jQuery-Plugin-Collection/master/license.txt
  */
 ;(function($, win, doc){
 
