@@ -9,7 +9,7 @@
 DIR="$( cd "$( dirname "$0" )" && pwd)"
 
 concat() {
-	TMP="/tmp/concat.tmp"
+	TMP="$DIR/concat.tmp"
 	for FILE in `find "$1" -type f`; do
 		cat "$FILE" >> "$TMP"
 	done

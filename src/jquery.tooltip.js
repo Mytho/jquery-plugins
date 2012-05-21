@@ -29,18 +29,20 @@
 		// -------
 
 		var construct = function(){
+			var txt = target.attr("title");
+			target.attr("title", "");
 			$("<div />").attr("id", uniqueId).addClass([options.elClass, options.size].join(" ")).appendTo("body").hide();
 			$("<div />").addClass("arrow").appendTo(selector);
 			$("<div />").addClass("content").appendTo(selector);
-			$(selector).find(".content").html(target.attr("title"));
-			target.removeAttr("title");
+			$(selector).find(".content").html(txt);
 		};
 
-		var destruct = function(){
+		var clear = function(){
 			clearTimeout(timer);
 		};
 
 		var hide = function( fn ){
+			clear();
 			timer = setTimeout(function(){
 				$(selector).fadeOut(options.fade, function(){
 					typeof fn === "function" && fn();
@@ -100,7 +102,7 @@
 		// ------
 
 		tooltip.hide = function(){
-			hide(destruct);
+			hide(clear);
 		};
 
 		tooltip.position = function(){

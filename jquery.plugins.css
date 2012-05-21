@@ -67,6 +67,7 @@ ul.tabs:after { clear:both; }
 	border-left:  5px solid transparent;
 	border-right: 5px solid transparent;
 	border-top:   5px solid #000;
+	_border:      0px; /*IE6*/
 	bottom:       -5px;
 	left:         50%;
 	margin:       0 0 0 -5px;
@@ -75,6 +76,7 @@ ul.tabs:after { clear:both; }
 	border-top:    5px solid transparent;
 	border-bottom: 5px solid transparent;
 	border-right:  5px solid #000;
+	_border:      0px; /*IE6*/
 	left:          -5px;
 	margin:        -5px 0 0 0;
 	top:           50%;
@@ -83,6 +85,7 @@ ul.tabs:after { clear:both; }
 	border-left:   5px solid transparent;
 	border-right:  5px solid transparent;
 	border-bottom: 5px solid #000;
+	_border:      0px; /*IE6*/
 	top:           -5px;
 	left:          50%;
 	margin:        0 0 0 -5px;
@@ -91,6 +94,7 @@ ul.tabs:after { clear:both; }
 	border-top:    5px solid transparent;
 	border-bottom: 5px solid transparent;
 	border-left:   5px solid #000;
+	_border:      0px; /*IE6*/
 	right:         -5px;
 	margin:        -5px 0 0 0;
 	top:           50%;
@@ -100,6 +104,7 @@ ul.tabs:after { clear:both; }
 	border-left:  8px solid transparent;
 	border-right: 8px solid transparent;
 	border-top:   8px solid #000;
+	_border:      0px; /*IE6*/
 	bottom:       -8px;
 	left:         50%;
 	margin:       0 0 0 -8px;
@@ -108,6 +113,7 @@ ul.tabs:after { clear:both; }
 	border-top:    8px solid transparent;
 	border-bottom: 8px solid transparent;
 	border-right:  8px solid #000;
+	_border:      0px; /*IE6*/
 	left:          -8px;
 	margin:        -8px 0 0 0;
 	top:           50%;
@@ -116,6 +122,7 @@ ul.tabs:after { clear:both; }
 	border-left:   8px solid transparent;
 	border-right:  8px solid transparent;
 	border-bottom: 8px solid #000;
+	_border:      0px; /*IE6*/
 	left:          50%;
 	margin:        0 0 0 -8px;
 	top:           -8px;
@@ -124,8 +131,8 @@ ul.tabs:after { clear:both; }
 	border-top:    8px solid transparent;
 	border-bottom: 8px solid transparent;
 	border-left:   8px solid #000;
+	_border:      0px; /*IE6*/
 	right:         -8px;
 	margin:        -8px 0 0 0;
 	top:           50%;
 }
-.tooltip-text { display:none; }
