@@ -85,6 +85,18 @@
 				<div class="item4">This is the content for item 4</div>
 			</div>
 			<hr />
+			<h2>Modal Plugin</h2>
+			<p>Example HTML:</p>
+			<code><pre>&lt;a href="index.html" class="modal"&gt;a working example&lt;/a&gt;</pre></code>
+			<p>Example JavaScript / jQuery</p>
+			<code><pre>$(".modal").modal({
+	close  : true,    // Show a close button
+	prefix : "modal", // Prefix used for element id
+	height : "80%",   // Modal window height
+	width  : "80%"    // Modal window width
+})</pre></code>
+			<p>Finally, <a href="index.html" class="modal">a working example</a></p>
+			<hr />
 			<h2>Tabs Plugin</h2>
 			<p>Example HTML:</p>
 			<code><pre>&lt;ul class="my-tab"&gt;
@@ -149,7 +161,10 @@
 		<script type="text/javascript" src="jquery.plugins.min.js" charset="utf8"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
+				// Accordion
 				$(".accordion").accordion();
+				// Modal
+				$(".modal").modal();
 				// Tabs
 				$(".tabs").tabs();
 				// Tooltip
