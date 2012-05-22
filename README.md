@@ -27,6 +27,22 @@ Example JavaScript / jQuery:
 		animationSpeed : 100       // Animation speed in miliseconds
 	});
 
+jquery.modal.js
+--------------
+
+Example HTML:
+
+    <a href="index.html" class="modal">Click Me!</a>
+
+Example JavaScript / jQuery:
+
+    $(".modal").modal({
+        close  : true,    // Show a close button
+        prefix : "modal", // Prefix used for element id
+        height : "80%",   // Modal window height
+        width  : "80%"    // Modal window width
+    });
+
 jquery.tabs.js
 --------------
 
@@ -45,7 +61,7 @@ Example HTML:
 		<div class="tab4">Some content for tab 4.</div>	
 	</div>
 
-and JavaScript / jQuery:
+Example JavaScript / jQuery:
 
 	$(".tabs").tabs({
 		activeClass  : "active",      // Class for the active list-element
