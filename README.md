@@ -1,10 +1,9 @@
 jQuery Plugin Collection
-========================
+------------------------
 
 A collection of jQuery plugins.
 
-jquery.accordion.js
--------------------
+### jquery.accordion.js
 
 Example HTML:
 
@@ -27,8 +26,7 @@ Example JavaScript / jQuery:
 		animationSpeed : 100       // Animation speed in miliseconds
 	});
 
-jquery.modal.js
---------------
+### jquery.modal.js
 
 Example HTML:
 
@@ -43,8 +41,7 @@ Example JavaScript / jQuery:
         width  : "80%"    // Modal window width
     });
 
-jquery.tabs.js
---------------
+### jquery.tabs.js
 
 Example HTML:
 
@@ -55,10 +52,10 @@ Example HTML:
 		<li><a href="#tab4">Tab 4</a></li>
 	</ul>
 	<div class="tabs-content">
-		<div class="tab1">Some content for tab 1.</div>	
-		<div class="tab2">Some content for tab 2.</div>	
-		<div class="tab3">Some content for tab 3.</div>	
-		<div class="tab4">Some content for tab 4.</div>	
+		<div class="tab1">Some content for tab 1.</div>
+		<div class="tab2">Some content for tab 2.</div>
+		<div class="tab3">Some content for tab 3.</div>
+		<div class="tab4">Some content for tab 4.</div>
 	</div>
 
 Example JavaScript / jQuery:
@@ -68,8 +65,7 @@ Example JavaScript / jQuery:
 		contentClass : "tabs-content" // Class for the content element
 	});
 
-jquery.tooltip.js
------------------
+### jquery.tooltip.js
 
 Example HTML:
 
@@ -86,4 +82,5 @@ Example usage:
 		size     : "normal"   // Size of the tooltip (normal or large)
     });
 
-To see the source code, visit the [Github Repository](https://github.com/Mytho/jquery.plugins.js).
+
+*Copyright (c) 2012, T. Zengerink - [See the lisence](https://raw.github.com/Mytho/jQuery-Plugin-Collection/master/LICENSE)*
