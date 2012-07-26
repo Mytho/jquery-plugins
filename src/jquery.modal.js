@@ -1,7 +1,7 @@
 /*!
- * jQuery Modal Plugin
- *
- * Copyright 2012, T. Zengerink
+ * JQUERY MODAL PLUGIN
+ * -------------------
+ * Copyright (c) 2012, T. Zengerink
  * Licensed under MIT License
  * See: https://raw.github.com/Mytho/jQuery-Plugin-Collection/master/license.txt
  */
@@ -10,7 +10,7 @@
 		var unique = -1;
 
 		var Modal = function( el, opts ){
-			
+
 			var modal = {},
 				defaults = {
 					close  : true,    // Show a close button
@@ -90,7 +90,7 @@
 			// ------
 
 			modal.close = function(){
-				hide();	
+				hide();
 			};
 
 			modal.open = function( e ){

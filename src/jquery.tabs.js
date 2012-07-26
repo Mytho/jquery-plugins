@@ -1,14 +1,14 @@
 /*!
- * jQuery Tabs Plugin
- *
- * Copyright 2012, T. Zengerink
+ * JQUERY TABS PLUGIN
+ * ------------------
+ * Copyright (c) 2012, T. Zengerink
  * Licensed under MIT License
  * See: https://raw.github.com/Mytho/jQuery-Plugin-Collection/master/license.txt
  */
 ;(function($){
 
 		var Tabs = function( el, opts ){
-			
+
 			var tabs = {},
 				active,
 				defaults = {
@@ -27,7 +27,7 @@
 				content.children([":not([id='", hash ,"'])"].join("")).hide();
 				content.children([".", hash.replace("#", "")].join("")).show();
 			};
-			
+
 			var init = function(){
 				content.children("div").hide();
 				active = ["#", content.children(":first-child").attr("class")].join("");
@@ -36,7 +36,7 @@
 
 			// PUBLIC
 			// ------
-			
+
 			tabs.click = function(){
 				activate($(this).children("a").attr("href"));
 			};

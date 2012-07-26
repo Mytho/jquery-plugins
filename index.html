@@ -14,10 +14,10 @@
 				font-size:        14px;
 				margin:           0;
 				padding:          0;
-			}	
+			}
 			h1 { font-size:24px; }
 			h2 { font-size:20px; }
-			pre { 
+			pre {
 				background-color:      #006;
 				-webkit-border-radius: 4px;
 				border-radius:         4px;
@@ -27,7 +27,7 @@
 			}
 			hr { border:1px solid #e7e7e7; margin:30px 0; }
 			a { color:#33b; }
-			#page { 
+			#page {
 				background-color:      #fff;
 				border:                1px solid #aaa;
 				-webkit-border-radius: 4px;
@@ -36,15 +36,15 @@
 				box-shadow:            0px 0px 2px 2px rgba(0, 0, 0, 0.2);
 				margin:                20px auto 0 auto;
 				padding:               25px;
-				width:                 950px; 
+				width:                 950px;
 			}
 			p { padding:8px 0; }
-			span.top, span.right, span.bottom, span.left, span.top-large { 
+			span.top, span.right, span.bottom, span.left, span.top-large {
 				background-color:      #eef;
 				-webkit-border-radius: 3px;
 				border-radius:         3px;
 				margin:                0 16px 0 0;
-				padding:               8px; 
+				padding:               8px;
 			}
 			#footer { color:#b7b7b7; font-size:11px; margin:5px 0 20px 0; text-align:center; }
 				#footer a { color:#b7b7b7; font-size:11px; text-decoration:none; }
@@ -106,10 +106,10 @@
 	&lt;li&gt;&lt;a href="#tab4"&gt;Tab 4&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="my-tab-content"&gt;
-	&lt;div class="tab1"&gt;Some content for tab 1.&lt;/div&gt;	
-	&lt;div class="tab2"&gt;Some content for tab 2.&lt;/div&gt;	
-	&lt;div class="tab3"&gt;Some content for tab 3.&lt;/div&gt;	
-	&lt;div class="tab4"&gt;Some content for tab 4.&lt;/div&gt;	
+	&lt;div class="tab1"&gt;Some content for tab 1.&lt;/div&gt;
+	&lt;div class="tab2"&gt;Some content for tab 2.&lt;/div&gt;
+	&lt;div class="tab3"&gt;Some content for tab 3.&lt;/div&gt;
+	&lt;div class="tab4"&gt;Some content for tab 4.&lt;/div&gt;
 &lt;/div&gt;</pre></code>
 			<p>Example JavaScript / jQuery:</p>
 			<code><pre>$(".my-tab").tabs({
@@ -124,10 +124,10 @@
 				<li><a href="#tab4">Tab 4</a></li>
 			</ul>
 			<div class="tabs-content">
-				<div class="tab1">Some content for tab 1.</div>	
-				<div class="tab2">Some content for tab 2.</div>	
-				<div class="tab3">Some content for tab 3.</div>	
-				<div class="tab4">Some content for tab 4.</div>	
+				<div class="tab1">Some content for tab 1.</div>
+				<div class="tab2">Some content for tab 2.</div>
+				<div class="tab3">Some content for tab 3.</div>
+				<div class="tab4">Some content for tab 4.</div>
 			</div>
 			<hr />
 			<h2>Tooltip Plugin</h2>
@@ -135,12 +135,14 @@
 			<code><pre>&lt;div class="my-element" title="This is my tooltip text"&gt;Hover Me!&lt;/div&gt;</pre></code>
 			<p>Example JavaScript / jQuery</p>
 			<code><pre>$(".my-element").tooltip({
-	elClass  : "tooltip", // Class of the DOM-element
-	delay    : 100,       // Delay in showing the tooltip
-	fade     : 100,       // Fade time in microseconds
-	margin   : 3,         // Space surrounding target element
-	position : "top",     // Position in relation to target element (top, right, bottom or left)
-	size     : "normal"   // Size of the tooltip (normal or large)
+	elClass   : "tooltip",    // Class of the DOM-element
+	delay     : 100,          // Delay in showing the tooltip
+	fade      : 100,          // Fade time in microseconds
+	hideEvent : "mouseleave", // Events that hide the tooltip
+	margin    : 3,            // Space surrounding target element
+	position  : "top",        // Position in relation to target element (top, right, bottom or left)
+	showEvent : "mouseenter", // Events that show the tooltip
+	size      : "normal"      // Size of the tooltip (normal or large)
 });</pre></code>
 			<p>Enough theory, lets see the tooltip in action:</p>
 			<p>
@@ -149,9 +151,9 @@
 				<span class="bottom" title="Some text on the bottom of the element">Bottom</span>
 				<span class="left" title="Some text on the left side of the element">Left</span>
 			</p>
-			<p>Or change the options to get a different result:</p>
+			<p>Or change the options to get a different result, try to focus on the input element:</p>
 			<p>
-				<span class="top-large" title="Yet another tooltip text for this larger example">Different Example</span>
+				<input class="left-large" title="Yet another tooltip text for this larger example" value="Different Example" />
 			</p>
 			<hr />
 			<p>To see the source code, visit the <a href="https://github.com/Mytho/jQuery-Plugin-Collection">GitHub Repository</a>.</p>
@@ -172,7 +174,16 @@
 				$(".right").tooltip({ "position":"right" });
 				$(".bottom").tooltip({ "position":"bottom" });
 				$(".left").tooltip({ "position":"left" });
-				$(".top-large").tooltip({ "delay":200, "fade":300, "margin":8, "size":"large" });
+				$(".left-large").tooltip({
+					"delay"       : 200,
+					"fade"        : 300,
+					"hideOnKeyUp" : false,
+					"hideEvent"   : "focusout",
+					"margin"      : 8,
+					"position"    : "right",
+					"showEvent"   : "focusin",
+					"size"        : "large"
+				});
 			});
 		</script>
 	</body>

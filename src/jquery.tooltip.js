@@ -1,7 +1,7 @@
 /*!
- * jQuery Tooltip Plugin
- *
- * Copyright 2012, T. Zengerink
+ * JQUERY TOOLTIP PLUGIN
+ * ---------------------
+ * Copyright (c) 2012, T. Zengerink
  * Licensed under MIT License
  * See: https://raw.github.com/Mytho/jQuery-Plugin-Collection/master/license.txt
  */
@@ -13,12 +13,14 @@
 
 		var tooltip = {},
 			defaults = {
-				elClass  : "tooltip", // Class of the DOM-element
-				delay    : 100,       // Delay in showing the tooltip
-				fade     : 100,       // Fade time in microseconds
-				margin   : 3,         // Space surrounding target element
-				position : "top",     // Position in relation to target element (top, right, bottom or left)
-				size     : "normal"   // Size of the tooltip (normal or large)
+				elClass   : "tooltip",    // Class of the DOM-element
+				delay     : 100,          // Delay in showing the tooltip
+				fade      : 100,          // Fade time in microseconds
+				hideEvent : "mouseleave", // Events that hide the tooltip
+				margin    : 3,            // Space surrounding target element
+				position  : "top",        // Position in relation to target element (top, right, bottom or left)
+				showEvent : "mouseenter", // Events that show the tooltip
+				size      : "normal"      // Size of the tooltip (normal or large)
 			},
 			options = $.extend({}, defaults, options),
 			uniqueId = [options.elClass, "-", (++unique).toString()].join(""),
@@ -121,9 +123,9 @@
 	$.fn.tooltip = function( options ){
 		return this.each(function(){
 			var tooltip = Tooltip($(this), options);
-			$(this).bind("mouseenter", tooltip.show);
-			$(this).bind("mouseleave click", tooltip.hide);
-			$(doc).bind("keyup", tooltip.hide);
+			$(this).bind(options.showEvent || "mouseenter", tooltip.show);
+			$(this).bind(options.hideEvent || "mouseleave", tooltip.hide);
+			options.hideOnKeyUp && $(doc).bind("keyup", tooltip.hide);
 			$(win).bind("scroll", tooltip.position);
 		});
 	};

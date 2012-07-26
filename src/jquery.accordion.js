@@ -1,7 +1,7 @@
 /*!
- * jQuery Accordion Plugin
- *
- * Copyright 2012, T. Zengerink
+ * JQUERY ACCORDION PLUGIN
+ * -----------------------
+ * Copyright (c) 2012, T. Zengerink
  * Licensed under MIT License
  * See: https://raw.github.com/Mytho/jQuery-Plugin-Collection/master/license.txt
  */
@@ -37,7 +37,7 @@
 
 			// PUBLIC
 			// ------
-			
+
 			accordion.click = function( e ){
 				e.preventDefault();
 				activate($(this).attr("href"));
@@ -45,11 +45,11 @@
 
 			// SETUP
 			// -----
-			
+
 			init();
 
 			return accordion;
-			
+
 		};
 
 		$.fn.accordion = function( options ){

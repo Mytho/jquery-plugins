@@ -1,7 +1,7 @@
 /*!
- * jQuery Accordion Plugin
- *
- * Copyright 2012, T. Zengerink
+ * JQUERY ACCORDION PLUGIN
+ * -----------------------
+ * Copyright (c) 2012, T. Zengerink
  * Licensed under MIT License
  * See: https://raw.github.com/Mytho/jQuery-Plugin-Collection/master/license.txt
  */
@@ -37,7 +37,7 @@
 
 			// PUBLIC
 			// ------
-			
+
 			accordion.click = function( e ){
 				e.preventDefault();
 				activate($(this).attr("href"));
@@ -45,11 +45,11 @@
 
 			// SETUP
 			// -----
-			
+
 			init();
 
 			return accordion;
-			
+
 		};
 
 		$.fn.accordion = function( options ){
@@ -61,9 +61,9 @@
 
 })(jQuery);
 /*!
- * jQuery Modal Plugin
- *
- * Copyright 2012, T. Zengerink
+ * JQUERY MODAL PLUGIN
+ * -------------------
+ * Copyright (c) 2012, T. Zengerink
  * Licensed under MIT License
  * See: https://raw.github.com/Mytho/jQuery-Plugin-Collection/master/license.txt
  */
@@ -72,7 +72,7 @@
 		var unique = -1;
 
 		var Modal = function( el, opts ){
-			
+
 			var modal = {},
 				defaults = {
 					close  : true,    // Show a close button
@@ -151,6 +151,10 @@
 			// PUBLIC
 			// ------
 
+			modal.close = function(){
+				hide();
+			};
+
 			modal.open = function( e ){
 				e.preventDefault();
 				if ( ! $(getSelector("outer")).length && $(this).attr("href")) {
@@ -162,10 +166,6 @@
 
 			modal.position = function(){
 				position();
-			};
-
-			modal.close = function(){
-				hide();	
 			};
 
 			// SETUP
@@ -185,16 +185,16 @@
 
 })(jQuery, window, document);
 /*!
- * jQuery Tabs Plugin
- *
- * Copyright 2012, T. Zengerink
+ * JQUERY TABS PLUGIN
+ * ------------------
+ * Copyright (c) 2012, T. Zengerink
  * Licensed under MIT License
  * See: https://raw.github.com/Mytho/jQuery-Plugin-Collection/master/license.txt
  */
 ;(function($){
 
 		var Tabs = function( el, opts ){
-			
+
 			var tabs = {},
 				active,
 				defaults = {
@@ -213,7 +213,7 @@
 				content.children([":not([id='", hash ,"'])"].join("")).hide();
 				content.children([".", hash.replace("#", "")].join("")).show();
 			};
-			
+
 			var init = function(){
 				content.children("div").hide();
 				active = ["#", content.children(":first-child").attr("class")].join("");
@@ -222,7 +222,7 @@
 
 			// PUBLIC
 			// ------
-			
+
 			tabs.click = function(){
 				activate($(this).children("a").attr("href"));
 			};
@@ -244,9 +244,9 @@
 
 })(jQuery);
 /*!
- * jQuery Tooltip Plugin
- *
- * Copyright 2012, T. Zengerink
+ * JQUERY TOOLTIP PLUGIN
+ * ---------------------
+ * Copyright (c) 2012, T. Zengerink
  * Licensed under MIT License
  * See: https://raw.github.com/Mytho/jQuery-Plugin-Collection/master/license.txt
  */
@@ -258,12 +258,14 @@
 
 		var tooltip = {},
 			defaults = {
-				elClass  : "tooltip", // Class of the DOM-element
-				delay    : 100,       // Delay in showing the tooltip
-				fade     : 100,       // Fade time in microseconds
-				margin   : 3,         // Space surrounding target element
-				position : "top",     // Position in relation to target element (top, right, bottom or left)
-				size     : "normal"   // Size of the tooltip (normal or large)
+				elClass   : "tooltip",    // Class of the DOM-element
+				delay     : 100,          // Delay in showing the tooltip
+				fade      : 100,          // Fade time in microseconds
+				hideEvent : "mouseleave", // Events that hide the tooltip
+				margin    : 3,            // Space surrounding target element
+				position  : "top",        // Position in relation to target element (top, right, bottom or left)
+				showEvent : "mouseenter", // Events that show the tooltip
+				size      : "normal"      // Size of the tooltip (normal or large)
 			},
 			options = $.extend({}, defaults, options),
 			uniqueId = [options.elClass, "-", (++unique).toString()].join(""),
@@ -366,9 +368,9 @@
 	$.fn.tooltip = function( options ){
 		return this.each(function(){
 			var tooltip = Tooltip($(this), options);
-			$(this).bind("mouseenter", tooltip.show);
-			$(this).bind("mouseleave click", tooltip.hide);
-			$(doc).bind("keyup", tooltip.hide);
+			$(this).bind(options.showEvent || "mouseenter", tooltip.show);
+			$(this).bind(options.hideEvent || "mouseleave", tooltip.hide);
+			options.hideOnKeyUp && $(doc).bind("keyup", tooltip.hide);
 			$(win).bind("scroll", tooltip.position);
 		});
 	};
