@@ -74,12 +74,14 @@ Example HTML:
 Example usage:
 
     $(".my-element").tooltip({
-		elClass  : "tooltip", // Class of the DOM-element
-		delay    : 100,       // Delay in showing the tooltip
-		fade     : 100,       // Fade time in microseconds
-		margin   : 3,         // Space surrounding target element
-		position : "top",     // Position in relation to target element (top, right, bottom or left)
-		size     : "normal"   // Size of the tooltip (normal or large)
+			elClass   : "tooltip",    // Class of the DOM-element
+			delay     : 100,          // Delay in showing the tooltip
+			fade      : 100,          // Fade time in microseconds
+			hideEvent : "mouseleave", // Events that hide the tooltip
+			margin    : 3,            // Space surrounding target element
+			position  : "top",        // Position in relation to target element (top, right, bottom or left)
+			showEvent : "mouseenter", // Events that show the tooltip
+			size      : "normal"      // Size of the tooltip (normal or large)
     });
 
 
