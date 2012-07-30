@@ -13,8 +13,8 @@
 
 		var tooltip = {},
 			defaults = {
-				elClass   : "tooltip",    // Class of the DOM-element
 				elAttr    : "title",      // Attribute to get content from
+				elClass   : "tooltip",    // Class of the DOM-element
 				delay     : 100,          // Delay in showing the tooltip
 				fade      : 100,          // Fade time in microseconds
 				hideEvent : "mouseleave", // Events that hide the tooltip
