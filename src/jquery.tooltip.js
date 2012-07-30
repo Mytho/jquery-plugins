@@ -14,6 +14,7 @@
 		var tooltip = {},
 			defaults = {
 				elClass   : "tooltip",    // Class of the DOM-element
+				elAttr    : "title",      // Attribute to get content from
 				delay     : 100,          // Delay in showing the tooltip
 				fade      : 100,          // Fade time in microseconds
 				hideEvent : "mouseleave", // Events that hide the tooltip
@@ -31,8 +32,8 @@
 		// -------
 
 		var construct = function(){
-			var txt = target.attr("title");
-			target.attr("title", "");
+			var txt = target.attr(options.elAttr);
+			target.attr(options.elAttr, "");
 			$("<div />").attr("id", uniqueId).addClass([options.elClass, options.size].join(" ")).appendTo("body").hide();
 			$("<div />").addClass("arrow").appendTo(selector);
 			$("<div />").addClass("content").appendTo(selector);
