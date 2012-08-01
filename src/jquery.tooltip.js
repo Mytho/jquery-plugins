@@ -104,6 +104,8 @@
 		// PUBLIC
 		// ------
 
+		tooltip.options = options;
+
 		tooltip.hide = function(){
 			hide(clear);
 		};
@@ -124,9 +126,9 @@
 	$.fn.tooltip = function( options ){
 		return this.each(function(){
 			var tooltip = Tooltip($(this), options);
-			$(this).bind(options.showEvent || "mouseenter", tooltip.show);
-			$(this).bind(options.hideEvent || "mouseleave", tooltip.hide);
-			options.hideOnKeyUp && $(doc).bind("keyup", tooltip.hide);
+			$(this).bind(tooltip.options.showEvent, tooltip.show);
+			$(this).bind(tooltip.options.hideEvent, tooltip.hide);
+			tooltip.options.hideOnKeyUp && $(doc).bind("keyup", tooltip.hide);
 			$(win).bind("scroll", tooltip.position);
 		});
 	};
