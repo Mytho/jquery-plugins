@@ -25,6 +25,7 @@
             elClass:      "dialog-container", // Class of the dialog DOM Element
             onCancel:     function(){},       // Callback on cancel
             onConfirm:    function(){},       // Callback on confirm
+            onOpen:       function(){},       // Callback on open
             showEvent:    "click"             // Event that triggers showing the dialog
         };
         options = $.extend({}, defaults, options);
@@ -58,6 +59,7 @@
             }
             position();
             $(selector).show();
+            options.onOpen();
         };
 
         position = function(){
