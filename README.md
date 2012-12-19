@@ -101,7 +101,7 @@ Example usage:
         elClass:      "dialog-container", // Class of the dialog DOM Element
         onCancel:     function(){},       // Callback on cancel
         onConfirm:    function(){},       // Callback on confirm
-        showEvent:    "click"             // Event that triggers showing the tooltip
+        showEvent:    "click"             // Event that triggers showing the dialog
     });
 
 *Copyright (c) 2012, T. Zengerink - [See the lisence](https://raw.github.com/Mytho/jQuery-Plugin-Collection/master/LICENSE)*

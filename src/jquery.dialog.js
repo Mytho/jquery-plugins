@@ -25,7 +25,7 @@
             elClass:      "dialog-container", // Class of the dialog DOM Element
             onCancel:     function(){},       // Callback on cancel
             onConfirm:    function(){},       // Callback on confirm
-            showEvent:    "click"             // Event that triggers showing the tooltip
+            showEvent:    "click"             // Event that triggers showing the dialog
         };
         options = $.extend({}, defaults, options);
         uniqueId = cat(options.elClass, "-", (++unique).toString());
