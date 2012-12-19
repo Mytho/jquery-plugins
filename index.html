@@ -157,13 +157,31 @@
 				<input class="left-large" title="Yet another tooltip text for this larger example" value="Different Example" />
 			</p>
 			<hr />
+			<h2>Dialog Plugin</h2>
+			<p>Example HTML:</p>
+			<code><pre>&lt;a href="javascript:void(0);"&gt;Click me!&lt;/a&gt;
+&lt;div class="dialog-content"&gt;This is the content for the dialog.&lt;/div&gt;</pre></code>
+			<p>Example JavaScript / jQuery</p>
+			<code><pre>$(".dialog").dialog({
+	cancelText:   "Cancel",           // Text in cancel button
+	confirmText:  "OK",               // Text in confirm button
+	contentClass: "dialog-content",   // Class of the dialog content element
+	elClass:      "dialog-container", // Class of the dialog DOM Element
+	onCancel:     function(){},       // Callback on cancel
+	onConfirm:    function(){},       // Callback on confirm
+	showEvent:    "click"             // Event that triggers showing the tooltip
+});</pre></code>
+			<p>Let's have a look at a working example</p>
+			<a href="javascript:void(0);" class="dialog">Click me!</a>
+			<div class="dialog-content">This is the content for the dialog.</div>
+			<hr />
 			<p>To see the source code, visit the <a href="https://github.com/Mytho/jQuery-Plugin-Collection">GitHub Repository</a>.</p>
 		</div>
 		<div id="footer"><a href="https://raw.github.com/Mytho/jQuery-Plugin-Collection/master/license.txt">Copyright &copy; 2012 T. Zengerink</a></div>
 		<script type="text/javascript" src="jquery-1.7.2.min.js" charset="utf8"></script>
 		<script type="text/javascript" src="jquery.plugins.min.js" charset="utf8"></script>
 		<script type="text/javascript">
-			$(document).ready(function(){
+			$(function(){
 				// Accordion
 				$(".accordion").accordion();
 				// Modal
@@ -185,6 +203,8 @@
 					"showEvent"   : "focusin",
 					"size"        : "large"
 				});
+				// Dialog
+				$(".dialog").dialog();
 			});
 		</script>
 	</body>
