@@ -57,8 +57,8 @@
             if ( ! $(selector).length) {
                 factory();
             }
-            position();
             $(selector).show();
+            position();
             options.onOpen();
         };
 
