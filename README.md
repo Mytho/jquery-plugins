@@ -85,5 +85,23 @@ Example usage:
 			size      : "normal"      // Size of the tooltip (normal or large)
     });
 
+### jquery.dialog.js
+
+Example HTML:
+
+    <a href="javascript:void(0);">Click me!</a>
+    <div class="dialog-content">This is the content for the dialog.</div>
+
+Example usage:
+
+    $(".dialog").dialog({
+        cancelText:   "Cancel",           // Text in cancel button
+        confirmText:  "OK",               // Text in confirm button
+        contentClass: "dialog-content",   // Class of the dialog content element
+        elClass:      "dialog-container", // Class of the dialog DOM Element
+        onCancel:     function(){},       // Callback on cancel
+        onConfirm:    function(){},       // Callback on confirm
+        showEvent:    "click"             // Event that triggers showing the tooltip
+    });
 
 *Copyright (c) 2012, T. Zengerink - [See the lisence](https://raw.github.com/Mytho/jQuery-Plugin-Collection/master/LICENSE)*
