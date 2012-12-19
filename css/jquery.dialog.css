@@ -1,0 +1,35 @@
+.dialog-container .outer {
+	background-color: #fff;
+	filter:           alpha(opacity=50);
+	left:             0;
+	opacity:          0.5;
+	position:         absolute;
+	top:              0;
+	width:            100%;
+	z-index:          1001;
+}
+.dialog-container .inner {
+	-webkit-border-radius: 3px;
+	-webkit-box-shadow:    0 0 3px 1px #d7d7d7;
+	background-color:      #fff;
+	border-radius:         3px;
+	border:                1px solid #ccc;
+	box-shadow:            0 0 3px 1px #d7d7d7;
+	left:                  0;
+	position:              absolute;
+	top:                   0;
+	width:                 300px;
+	z-index:               1002;
+}
+.dialog-container .inner .content {
+	padding: 4px;
+}
+.dialog-container .inner .action {
+	background-color: #eee;
+	border-top:       1px solid #ccc;
+	padding:          4px;
+	text-align:       center;
+}
+.dialog-content {
+	display: none;
+}

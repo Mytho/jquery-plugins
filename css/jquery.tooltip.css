@@ -20,7 +20,7 @@
 	max-width:             150px;
 }
 .tooltip .arrow { height:0; position:absolute; width:0; }
-.tooltip.top .arrow { 
+.tooltip.top .arrow {
 	border-left:  5px solid transparent;
 	border-right: 5px solid transparent;
 	border-top:   5px solid #000;
@@ -38,7 +38,7 @@
 	margin:        -5px 0 0 0;
 	top:           50%;
 }
-.tooltip.bottom .arrow { 
+.tooltip.bottom .arrow {
 	border-left:   5px solid transparent;
 	border-right:  5px solid transparent;
 	border-bottom: 5px solid #000;
@@ -57,7 +57,7 @@
 	top:           50%;
 }
 .tooltip.large .content { font-size:1.2em; padding:6px; max-width:200px; }
-.tooltip.large.top .arrow { 
+.tooltip.large.top .arrow {
 	border-left:  8px solid transparent;
 	border-right: 8px solid transparent;
 	border-top:   8px solid #000;
@@ -75,7 +75,7 @@
 	margin:        -8px 0 0 0;
 	top:           50%;
 }
-.tooltip.large.bottom .arrow { 
+.tooltip.large.bottom .arrow {
 	border-left:   8px solid transparent;
 	border-right:  8px solid transparent;
 	border-bottom: 8px solid #000;
