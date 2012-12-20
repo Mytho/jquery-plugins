@@ -3,26 +3,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>jQuery Plugin Examples</title>
-		<link rel="stylesheet" type="text/css" href="plugins.min.css" />
+		<title>jQuery Plugin Dialog Examples</title>
+		<link rel="stylesheet" type="text/css" href="../plugins.min.css" />
 		<style type="text/css">
-			body { background-color:#eee; }
+			body { background-color:#eee; font: 16px Arial, "Helvetica Neue", Helvetica; }
+			a { display:block; margin:100px 0; text-align: center; }
 		</style>
 	</head>
 	<body>
 		<a href="javascript:void(0);" class="dialog-trigger">Click Me!</a>
 		<div class="dialog-content">Are you sure you want to do this?</div>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" charset="utf8"></script>
-		<script type="text/javascript" src="plugins.min.js" charset="utf8"></script>
+		<script type="text/javascript" src="../plugins.min.js" charset="utf8"></script>
 		<script type="text/javascript">
 			$(function(){
 				$(".dialog-trigger").dialog({
-					onCancel: function(){ console.log("Canceling.."); },
-					onClose: function(){ console.log("Closing.."); },
-					onConfirm: function(){ console.log("Confirming.."); },
-					onOpen: function(){ console.log("Opening.."); }
+					onCancel: function(){ alert("Cancel clicked!"); },
+					onConfirm: function(){ alert("Confirm clicked!"); },
 				});
-				$(".dialog-trigger").trigger("click");
 			});
 		</script>
 	</body>
