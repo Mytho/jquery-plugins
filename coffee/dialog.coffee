@@ -15,7 +15,7 @@ Dialog = (target, config) ->
     onClose: -> return               # Callback on close
     onConfirm: -> return             # Callback on confirm
     onOpen: -> return                # Callback on open
-    showClose: true                  # Show close button on op of dialog
+    showClose: true                  # Show close button on top of dialog
     onEvent: "click"                 # Show dialog on event
   config = $.extend {}, defaults, config
   selector = cat "#", config.elClass, "-", id
@@ -27,18 +27,18 @@ Dialog = (target, config) ->
 
   # Build new dialog DOM-element and append it to the HTML body.
   build = ->
-    $("<div />").addClass(config.elClass).attr("id", cat config.elClass, "-", id).appendTo("body")
-    $("<div />").addClass("outer").appendTo(selector)
-    $("<div />").addClass("inner").appendTo(selector)
-    $("<div />").addClass("header").appendTo(cat selector, " .inner")
+    $(document.createElement("div")).addClass(config.elClass).attr("id", cat config.elClass, "-", id).appendTo("body")
+    $(document.createElement("div")).addClass("outer").appendTo(selector)
+    $(document.createElement("div")).addClass("inner").appendTo(selector)
+    $(document.createElement("div")).addClass("header").appendTo(cat selector, " .inner")
     $("<h3 />").html(config.headerText).appendTo(cat selector, " .header")
-    $("<div />").addClass("content").html(target.next(cat ".", config.contentClass).html()).appendTo(cat selector, " .inner")
-    $("<div />").addClass("actions").appendTo(cat selector, " .inner")
+    $(document.createElement("div")).addClass("content").html(target.next(cat ".", config.contentClass).html()).appendTo(cat selector, " .inner")
+    $(document.createElement("div")).addClass("actions").appendTo(cat selector, " .inner")
     $("<button />").addClass("cancel").html(config.cancelText).appendTo(cat selector, " .actions")
     $("<button />").addClass("confirm").html(config.confirmText).appendTo(cat selector, " .actions")
     if config.showClose
       $("<button />").addClass("cancel").html("×").appendTo(cat selector, " .header")
-      $("<div />").addClass("clear").appendTo(cat selector, " .header")
+      $(document.createElement("div")).addClass("clear").appendTo(cat selector, " .header")
 
   # Close the dialog window and call the `onCancel` configuration callback is
   # when done.
