@@ -5,12 +5,15 @@
 		<meta charset="utf-8" />
 		<title>jQuery Plugin Examples</title>
 		<link rel="stylesheet" type="text/css" href="plugins.min.css" />
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" charset="utf8"></script>
-		<script type="text/javascript" src="plugins.min.js" charset="utf8"></script>
+		<style type="text/css">
+			body { background-color:#eee; }
+		</style>
 	</head>
 	<body>
 		<a href="javascript:void(0);" class="dialog-trigger">Click Me!</a>
 		<div class="dialog-content">Are you sure you want to do this?</div>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" charset="utf8"></script>
+		<script type="text/javascript" src="plugins.min.js" charset="utf8"></script>
 		<script type="text/javascript">
 			$(function(){
 				$(".dialog-trigger").dialog({
@@ -19,6 +22,7 @@
 					onConfirm: function(){ console.log("Confirming.."); },
 					onOpen: function(){ console.log("Opening.."); }
 				});
+				$(".dialog-trigger").trigger("click");
 			});
 		</script>
 	</body>

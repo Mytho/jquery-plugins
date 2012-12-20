@@ -1,5 +1,10 @@
 div.dialog {
-	.font;
+  .plugin;
+  .font;
+
+  div.clear {
+    clear: both;
+  }
 
 	div.outer {
 		.opaque;
@@ -18,11 +23,33 @@ div.dialog {
 		.drop-shadow;
 
 		position: absolute;
-		width:    250px;
+		width:    350px;
 		z-index:  1002;
 	}
 
+  div.header {
+    .border-position(bottom);
+
+    background-color: @grey-light;
+
+    h3 {
+      display: inline-block;
+      float:   left;
+      padding:  8px;
+    }
+
+    button {
+      .btn;
+
+      float:   right;
+      padding: 0 2px;
+      margin:  4px;
+    }
+  }
+
 	div.content {
+    .font(14px);
+
 		padding: 8px;
 	}
 
@@ -33,8 +60,12 @@ div.dialog {
 		padding:          4px 8px;
 		text-align:       center;
 
-		button {
-			.btn;
-		}
+    button.cancel {
+      .btn;
+    }
+
+    button.confirm {
+      .btn-primary;
+    }
 	}
 }
