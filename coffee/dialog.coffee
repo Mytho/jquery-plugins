@@ -1,7 +1,9 @@
 $ = jQuery
-uniq = -1
 cat = () -> Array.prototype.slice.call(arguments).join("")
+doc = document
 floor = Math.floor
+uniq = -1
+win = window
 
 Dialog = (target, config) ->
   id = ++uniq
@@ -24,25 +26,25 @@ Dialog = (target, config) ->
   bind = ->
     $(cat selector, " .cancel").on("click", cancel)
     $(cat selector, " .confirm").on("click", confirm)
-    $(document).keyup (e) ->
+    $(doc).keyup (e) ->
       if $(selector).is(":visible")
         confirm() if e.keyCode is 13
         cancel() if e.keyCode is 27
 
   # Build new dialog DOM-element and append it to the HTML body.
   build = ->
-    $(document.createElement("div")).addClass(config.elClass).attr("id", cat config.elClass, "-", id).appendTo("body")
-    $(document.createElement("div")).addClass("outer").appendTo(selector)
-    $(document.createElement("div")).addClass("inner").appendTo(selector)
-    $(document.createElement("div")).addClass("header").appendTo(cat selector, " .inner")
-    $(document.createElement("h3")).html(config.headerText).appendTo(cat selector, " .header")
-    $(document.createElement("div")).addClass("content").html(target.next(cat ".", config.contentClass).html()).appendTo(cat selector, " .inner")
-    $(document.createElement("div")).addClass("actions").appendTo(cat selector, " .inner")
-    $(document.createElement("button")).addClass("cancel").html(config.cancelText).appendTo(cat selector, " .actions")
-    $(document.createElement("button")).addClass("confirm").html(config.confirmText).appendTo(cat selector, " .actions")
+    $(doc.createElement("div")).addClass(config.elClass).attr("id", cat config.elClass, "-", id).appendTo("body")
+    $(doc.createElement("div")).addClass("outer").appendTo(selector)
+    $(doc.createElement("div")).addClass("inner").appendTo(selector)
+    $(doc.createElement("div")).addClass("header").appendTo(cat selector, " .inner")
+    $(doc.createElement("h3")).html(config.headerText).appendTo(cat selector, " .header")
+    $(doc.createElement("div")).addClass("content").html(target.next(cat ".", config.contentClass).html()).appendTo(cat selector, " .inner")
+    $(doc.createElement("div")).addClass("actions").appendTo(cat selector, " .inner")
+    $(doc.createElement("button")).addClass("cancel").html(config.cancelText).appendTo(cat selector, " .actions")
+    $(doc.createElement("button")).addClass("confirm").html(config.confirmText).appendTo(cat selector, " .actions")
     if config.showClose
-      $(document.createElement("button")).addClass("cancel").html("×").appendTo(cat selector, " .header")
-      $(document.createElement("div")).addClass("clear").appendTo(cat selector, " .header")
+      $(doc.createElement("button")).addClass("cancel").html("×").appendTo(cat selector, " .header")
+      $(doc.createElement("div")).addClass("clear").appendTo(cat selector, " .header")
 
   # Close the dialog window and call the `onCancel` configuration callback is
   # when done.
@@ -74,16 +76,16 @@ Dialog = (target, config) ->
 
   # Position the dialog on the screen.
   position = ->
-    ww = floor($(window).outerWidth() / 2)
-    wh = floor($(window).outerHeight() / 2)
+    ww = floor($(win).outerWidth() / 2)
+    wh = floor($(win).outerHeight() / 2)
     iw = floor($(cat selector, " .inner").outerWidth() / 2)
     ih = floor($(cat selector, " .inner").outerHeight() / 2)
     $(cat selector, " .outer").css
-      height: $(document).outerHeight()
-      left: $(window).scrollLeft()
+      height: $(doc).outerHeight()
+      left: $(win).scrollLeft()
     $(cat selector, " .inner").css
-      left: cat ww - iw + $(window).scrollLeft(), "px"
-      top: cat wh - ih + $(window).scrollTop(), "px"
+      left: cat ww - iw + $(win).scrollLeft(), "px"
+      top: cat wh - ih + $(win).scrollTop(), "px"
 
   # Return the public available dialog object.
   config: config
@@ -95,4 +97,4 @@ $.fn.dialog = (config) ->
     dialog = new Dialog $(@), config
     $(@).on(dialog.config.onEvent, dialog.open)
     $(cat ".", dialog.config.contentClass).hide()
-    $(window).on("scroll resize", dialog.position)
+    $(win).on("scroll resize", dialog.position)
