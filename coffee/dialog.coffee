@@ -32,12 +32,13 @@ Dialog = (target, config) ->
     $("<div />").addClass("inner").appendTo(selector)
     $("<div />").addClass("header").appendTo(cat selector, " .inner")
     $("<h3 />").html(config.headerText).appendTo(cat selector, " .header")
-    $("<button />").addClass("cancel").html("×").appendTo(cat selector, " .header")
-    $("<div />").addClass("clear").appendTo(cat selector, " .header")
     $("<div />").addClass("content").html(target.next(cat ".", config.contentClass).html()).appendTo(cat selector, " .inner")
     $("<div />").addClass("actions").appendTo(cat selector, " .inner")
     $("<button />").addClass("cancel").html(config.cancelText).appendTo(cat selector, " .actions")
     $("<button />").addClass("confirm").html(config.confirmText).appendTo(cat selector, " .actions")
+    if config.showClose
+      $("<button />").addClass("cancel").html("×").appendTo(cat selector, " .header")
+      $("<div />").addClass("clear").appendTo(cat selector, " .header")
 
   # Close the dialog window and call the `onCancel` configuration callback is
   # when done.
