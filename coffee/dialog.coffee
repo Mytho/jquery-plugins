@@ -20,10 +20,14 @@ Dialog = (target, config) ->
   config = $.extend {}, defaults, config
   selector = cat "#", config.elClass, "-", id
 
-  # Bind click events to the buttons of the dialog
+  # Bind click/keyup events to the buttons of the dialog
   bind = ->
     $(cat selector, " .cancel").on("click", cancel)
     $(cat selector, " .confirm").on("click", confirm)
+    $(document).keyup (e) ->
+      if $(selector).is(":visible")
+        confirm() if e.keyCode is 13
+        cancel() if e.keyCode is 27
 
   # Build new dialog DOM-element and append it to the HTML body.
   build = ->
@@ -31,13 +35,13 @@ Dialog = (target, config) ->
     $(document.createElement("div")).addClass("outer").appendTo(selector)
     $(document.createElement("div")).addClass("inner").appendTo(selector)
     $(document.createElement("div")).addClass("header").appendTo(cat selector, " .inner")
-    $("<h3 />").html(config.headerText).appendTo(cat selector, " .header")
+    $(document.createElement("h3")).html(config.headerText).appendTo(cat selector, " .header")
     $(document.createElement("div")).addClass("content").html(target.next(cat ".", config.contentClass).html()).appendTo(cat selector, " .inner")
     $(document.createElement("div")).addClass("actions").appendTo(cat selector, " .inner")
-    $("<button />").addClass("cancel").html(config.cancelText).appendTo(cat selector, " .actions")
-    $("<button />").addClass("confirm").html(config.confirmText).appendTo(cat selector, " .actions")
+    $(document.createElement("button")).addClass("cancel").html(config.cancelText).appendTo(cat selector, " .actions")
+    $(document.createElement("button")).addClass("confirm").html(config.confirmText).appendTo(cat selector, " .actions")
     if config.showClose
-      $("<button />").addClass("cancel").html("×").appendTo(cat selector, " .header")
+      $(document.createElement("button")).addClass("cancel").html("×").appendTo(cat selector, " .header")
       $(document.createElement("div")).addClass("clear").appendTo(cat selector, " .header")
 
   # Close the dialog window and call the `onCancel` configuration callback is
