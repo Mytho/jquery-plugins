@@ -97,6 +97,4 @@ class Plugins.Dialog extends Plugins.Plugin
       top: Plugins.cat wh - ih + $(win).scrollTop(), "px"
 
 # Define the plugin in as a jQuery-function.
-$.fn.dialog = (config) ->
-  @.each ->
-    dialog = new Plugins.Dialog config, $(@)
+$.fn.dialog = (config) -> @.each -> new Plugins.Dialog config, $(@)

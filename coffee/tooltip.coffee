@@ -86,6 +86,4 @@ class Plugins.Tooltip extends Plugins.Plugin
         if (xy.top - $(win).scrollTop() < $(@selector).outerHeight() + 15) then "bottom" else position
 
 # Define the plugin in as a jQuery-function.
-$.fn.tooltip = (config) ->
-  @.each ->
-    tooltip = new Plugins.Tooltip config, $(@)
+$.fn.tooltip = (config) -> @.each -> new Plugins.Tooltip config, $(@)
