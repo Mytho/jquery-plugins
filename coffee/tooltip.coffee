@@ -1,33 +1,52 @@
+# ## Plugins.Tooltip
+#
+# Plugin that shows a tooltip when the user invokes a configurable event on
+# the `invoker`.
+#
+# *Example usage in your JavaScript:*
+#
+#     $("div").tooltip();
+#
 class Plugins.Tooltip extends Plugins.Plugin
   defaults:
-    attr: "title"                 # DOM-attribute that containts content
-    delay: 100                    # Delay in showing the tooltip
-    fade:  100                    # Fade time in microseconds
-    invokeHideEvent: "mouseleave" # Event that hides the Tooltip
-    invokeShowEvent: "mouseenter" # Event that shows the Tooltip
-    klass: "tooltip"              # Class of the DOM-element
-    margin: 3                     # Margin between Tooltip and invoker
-    position: "top"               # Position of Tooltip relative to invoker
+    attr: "title"                  # DOM-attribute that containts content
+    delay: 100                     # Delay in showing the tooltip
+    fade:  100                     # Fade time in microseconds
+    invokeHideEvent: "mouseleave"  # Event that hides the Tooltip
+    invokeShowEvent: "mouseenter"  # Event that shows the Tooltip
+    klass: "tooltip"               # Class of the DOM-element
+    margin: 3                      # Margin between Tooltip and invoker
+    position: "top"                # Position of Tooltip relative to invoker
   timer: false
 
+  # Construct a new Tooltip passing a `config` and `invoker` object.
   constructor: (config, invoker) ->
-    at = @
     super config, invoker
+    @build()
+    @bind()
+
+  # Bind events to show, hide or reposition the tooltip.
+  bind: ->
+    at = @
     @invoker.on @config.invokeShowEvent, -> at.show.apply at if not $(at.selector).is(":visible")
     @invoker.on @config.invokeHideEvent, -> at.hide.apply at if $(at.selector).is(":visible")
     $(win).on "scroll", @position.apply @
 
+  # Build new dialog DOM-element and append it to the HTML body.
   build: ->
     Plugins.create("div", @config.klass).attr("id", @elId).appendTo("body").hide()
     Plugins.create("div", "arrow").appendTo(@selector)
     Plugins.create("div", "content").html(@invoker.attr @config.attr).appendTo(@selector)
     @invoker.attr @config.attr, ""
 
+  # Hide the tooltip using the `config`-ured `delay` and `fade` microseconds.
   hide: ->
     at = @
     clearTimeout @timer
     @timer = Plugins.delay at.config.delay, -> $(at.selector).fadeOut at.config.fade
 
+  # Position the element within the window. Reposition the tooltip when to close
+  # to the border of the window.
   position: ->
     xy = @invoker.position()
     position = @_reposition xy, @config.position
@@ -48,12 +67,13 @@ class Plugins.Tooltip extends Plugins.Plugin
       left: left
       top: top
 
+  # Show the tooltip using the `config`-ured `delay` and `fade` microseconds.
   show: ->
     at = @
-    @build() if not $(@selector).length
     @position()
     @timer = Plugins.delay at.config.delay, -> $(at.selector).fadeIn at.config.fade
 
+  # Reposition the tooltip when the element is to close to the border of the window.
   _reposition: (xy, position) ->
     switch position
       when "right"
@@ -65,7 +85,7 @@ class Plugins.Tooltip extends Plugins.Plugin
       else
         if (xy.top - $(win).scrollTop() < $(@selector).outerHeight() + 15) then "bottom" else position
 
-
+# Define the plugin in as a jQuery-function.
 $.fn.tooltip = (config) ->
   @.each ->
     tooltip = new Plugins.Tooltip config, $(@)

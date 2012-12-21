@@ -50,6 +50,11 @@ module.exports = function( grunt ){
                 }
             }
         },
+        docco: {
+            plugins: {
+                src: ["build/plugins.coffee"]
+            }
+        },
         lint: {
             plugins: ["grunt.js"]
         },
@@ -109,6 +114,7 @@ module.exports = function( grunt ){
     grunt.loadNpmTasks("grunt-coffee");
     grunt.loadNpmTasks("grunt-contrib-less");
     grunt.loadNpmTasks("grunt-css");
+    grunt.loadNpmTasks("grunt-docco");
 
-    grunt.registerTask("default", "concat coffee lint less min cssmin");
+    grunt.registerTask("default", "concat coffee lint less min docco cssmin");
 };
