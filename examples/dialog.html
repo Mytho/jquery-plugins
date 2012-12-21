@@ -11,13 +11,13 @@
 		</style>
 	</head>
 	<body>
-		<a href="javascript:void(0);" class="dialog-trigger">Click me!</a>
+		<a href="javascript:void(0);" class="dialog-invoker">Click me!</a>
 		<div class="dialog-content">Are you sure you want to do this?</div>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" charset="utf8"></script>
 		<script type="text/javascript" src="../plugins.min.js" charset="utf8"></script>
 		<script type="text/javascript">
 			$(function(){
-				$(".dialog-trigger").dialog({
+				$(".dialog-invoker").dialog({
 					onCancel: function(){ alert("Canceled!"); },
 					onConfirm: function(){ alert("Confirmed!"); }
 				});

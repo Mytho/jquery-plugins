@@ -1,6 +1,6 @@
 # Plugins.Dialog show a dialog box with optional `onCancel` and `onConfirm`
 # callback function which can be set in the `config` object.
-class Plugins.Dialog extends Plugins.Core
+class Plugins.Dialog extends Plugins.Plugin
   defaults:
     cancelText: "Cancel"             # Cancel button text
     confirmText: "OK"                # Confirm button text

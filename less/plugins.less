@@ -1,3 +1,5 @@
+@dark:        #222;
+@light:       #eee;
 @grey-dark:   #aeaeae;
 @grey-medium: (@grey-dark + #222);
 @grey-light:  (@grey-medium + #222);
@@ -17,7 +19,7 @@
 
 /* -- FONT ------------------------------------------------------------------ */
 
-.font (@size: 12px, @color: #222, @face: ~'Arial, "Helvetica Neue", Helvetica, sans-serif') {
+.font (@size: 12px, @color: @dark, @face: ~'Arial, "Helvetica Neue", Helvetica, sans-serif') {
   color: @color;
 	font:  @size @face;
 }
@@ -86,13 +88,13 @@
 /* -- BUTTON ---------------------------------------------------------------- */
 
 .btn (@one: #f5f5f5, @two: @grey-light) when (luma(@two) > 50%) {
-  color:       #222;
-	text-shadow: 0 1px 1px #eee;
+  color:       @dark;
+	text-shadow: 0 1px 1px @light;
 }
 
 .btn (@one: #f5f5f5, @two: @grey-light) when (luma(@two) =< 50%) {
-  color:       #eee;
-	text-shadow: 0 1px 1px #222;
+  color:       @light;
+	text-shadow: 0 1px 1px @dark;
 }
 
 .btn (@one: #f5f5f5, @two: @grey-light) {

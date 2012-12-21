@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>jQuery Plugin Tooltip Examples</title>
+		<link rel="stylesheet" type="text/css" href="../plugins.min.css" />
+		<style type="text/css">
+			body { background-color: #eee; font: 16px Arial, "Helvetica Neue", Helvetica; }
+			div#page { margin: 100px 0 0 0; text-align: center; }
+			a { padding:10px; }
+		</style>
+	</head>
+	<body>
+		<div id="page">
+			<a href="javascript:void(0);" class="tooltip-invoker-top" title="Sample using the title attribute as the content for the Tooltip.">Hover me!</a>
+			<a href="javascript:void(0);" class="tooltip-invoker-right" title="Sample using the title attribute as the content for the Tooltip.">Hover me!</a>
+			<a href="javascript:void(0);" class="tooltip-invoker-bottom" title="Sample using the title attribute as the content for the Tooltip.">Click me!</a>
+			<a href="javascript:void(0);" class="tooltip-invoker-left" title="Sample using the title attribute as the content for the Tooltip.">Click me!</a>
+		</div>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" charset="utf8"></script>
+		<script type="text/javascript" src="../plugins.min.js" charset="utf8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".tooltip-invoker-top").tooltip();
+				$(".tooltip-invoker-right").tooltip({
+					position: "right"
+				});
+				$(".tooltip-invoker-bottom").tooltip({
+					position: "bottom",
+					invokeShowEvent: "click",
+					invokeHideEvent: "click"
+				});
+				$(".tooltip-invoker-left").tooltip({
+					position: "left",
+					invokeShowEvent: "click",
+					invokeHideEvent: "click"
+				});
+			});
+		</script>
+	</body>
+</html>

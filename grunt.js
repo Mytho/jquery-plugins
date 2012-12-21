@@ -29,14 +29,16 @@ module.exports = function( grunt ){
             plugins: {
                 src: [
                     "coffee/plugins.coffee",
-                    "coffee/dialog.coffee"
+                    "coffee/dialog.coffee",
+                    "coffee/tooltip.coffee"
                 ],
                 dest: "build/plugins.coffee"
             },
             less: {
                 src: [
                     "less/plugins.less",
-                    "less/dialog.less"
+                    "less/dialog.less",
+                    "less/tooltip.less"
                 ],
                 dest: "build/plugins.less"
             }
