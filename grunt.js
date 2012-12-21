@@ -27,11 +27,17 @@ module.exports = function( grunt ){
         },
         concat: {
             plugins: {
-                src: ["coffee/*.coffee"],
+                src: [
+                    "coffee/plugins.coffee",
+                    "coffee/dialog.coffee"
+                ],
                 dest: "build/plugins.coffee"
             },
             less: {
-                src: ["less/base.less", "less/dialog.less"],
+                src: [
+                    "less/plugins.less",
+                    "less/dialog.less"
+                ],
                 dest: "build/plugins.less"
             }
         },
@@ -43,7 +49,7 @@ module.exports = function( grunt ){
             }
         },
         lint: {
-            plugins: ["grunt.js", "build/plugins.js"]
+            plugins: ["grunt.js"]
         },
         jshint: {
             options: {
@@ -65,6 +71,7 @@ module.exports = function( grunt ){
                 "plusplus"  : false,
                 "quotmark"  : "double",
                 "regexp"    : true,
+                "shadow"    : true,
                 "strict"    : false,
                 "trailing"  : true,
                 "undef"     : true,
