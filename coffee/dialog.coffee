@@ -25,6 +25,7 @@ class Plugins.Dialog extends Plugins.Plugin
     onOpen: -> return               # Callback on open
     showClose: true                 # Show close button on top of dialog
 
+  # Construct a new Dialog passing a `config` and `invoker` object.
   constructor: (config, invoker) ->
     super config, invoker
     @build()
