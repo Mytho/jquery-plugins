@@ -38,3 +38,8 @@ class Plugins.Plugin
     @invoker = invoker
     @elId = Plugins.cat @config.klass, "-", @id
     @selector = Plugins.cat "#", @elId
+    @init()
+
+  # Method that gets executed if the constructor is done constructing a new
+  # Plugin.
+  init: -> false

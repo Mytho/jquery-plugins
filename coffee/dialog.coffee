@@ -25,12 +25,6 @@ class Plugins.Dialog extends Plugins.Plugin
     onOpen: -> return               # Callback on open
     showClose: true                 # Show close button on top of dialog
 
-  # Construct a new Dialog passing a `config` and `invoker` object.
-  constructor: (config, invoker) ->
-    super config, invoker
-    @build()
-    @bind()
-
   # Bind click/keyup events to the buttons of the dialog.
   bind: ->
     at = @
@@ -77,6 +71,11 @@ class Plugins.Dialog extends Plugins.Plugin
     @config.onConfirm?()
     @close()
 
+  # Initialize the newly created Dialog plugin.
+  init: ->
+    @build()
+    @bind()
+
   # Close the dialog window and call the `onOpen` configuration callback when 
   # done.
   open: ->
@@ -97,5 +96,5 @@ class Plugins.Dialog extends Plugins.Plugin
       left: Plugins.cat ww - iw + $(win).scrollLeft(), "px"
       top: Plugins.cat wh - ih + $(win).scrollTop(), "px"
 
-# Define the plugin in as a jQuery-function.
+# Define the plugin as a jQuery-function.
 $.fn.dialog = (config) -> @.each -> new Plugins.Dialog config, $(@)

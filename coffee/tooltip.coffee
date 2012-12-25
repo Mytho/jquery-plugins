@@ -19,11 +19,17 @@ class Plugins.Tooltip extends Plugins.Plugin
     position: "top"                # Position of Tooltip relative to invoker
   timer: false
 
-  # Construct a new Tooltip passing a `config` and `invoker` object.
-  constructor: (config, invoker) ->
-    super config, invoker
-    @build()
-    @bind()
+  # Reposition the tooltip when the element is to close to the border of the window.
+  _reposition: (xy, position) ->
+    switch position
+      when "right"
+        if (xy.left - $(win).scrollLeft() + @invoker.outerWidth() + $(@selector).outerWidth() + 15 > $(win).width()) then "left" else position
+      when "bottom"
+        if (xy.top - $(win).scrollTop() + @invoker.outerHeight() + $(@selector).outerHeight() + 15 > $(win).height()) then "top" else position
+      when "left"
+        if (xy.left - $(win).scrollLeft() < $(@selector).outerWidth() + 15) then "right" else position
+      else
+        if (xy.top - $(win).scrollTop() < $(@selector).outerHeight() + 15) then "bottom" else position
 
   # Bind events to show, hide or reposition the tooltip.
   bind: ->
@@ -44,6 +50,11 @@ class Plugins.Tooltip extends Plugins.Plugin
     at = @
     clearTimeout @timer
     @timer = Plugins.delay at.config.delay, -> $(at.selector).fadeOut at.config.fade
+
+  # Initialize the newly created Tooltip plugin.
+  init: ->
+    @build()
+    @bind()
 
   # Position the element within the window. Reposition the tooltip when to close
   # to the border of the window.
@@ -71,19 +82,9 @@ class Plugins.Tooltip extends Plugins.Plugin
   show: ->
     at = @
     @position()
-    @timer = Plugins.delay at.config.delay, -> $(at.selector).fadeIn at.config.fade
+    @timer = Plugins.delay at.config.delay, -> 
+      $(Plugins.cat ".", at.config.klass).fadeOut at.config.fade
+      $(at.selector).fadeIn at.config.fade
 
-  # Reposition the tooltip when the element is to close to the border of the window.
-  _reposition: (xy, position) ->
-    switch position
-      when "right"
-        if (xy.left - $(win).scrollLeft() + @invoker.outerWidth() + $(@selector).outerWidth() + 15 > $(win).width()) then "left" else position
-      when "bottom"
-        if (xy.top - $(win).scrollTop() + @invoker.outerHeight() + $(@selector).outerHeight() + 15 > $(win).height()) then "top" else position
-      when "left"
-        if (xy.left - $(win).scrollLeft() < $(@selector).outerWidth() + 15) then "right" else position
-      else
-        if (xy.top - $(win).scrollTop() < $(@selector).outerHeight() + 15) then "bottom" else position
-
-# Define the plugin in as a jQuery-function.
+# Define the plugin as a jQuery-function.
 $.fn.tooltip = (config) -> @.each -> new Plugins.Tooltip config, $(@)
