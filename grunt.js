@@ -29,6 +29,7 @@ module.exports = function( grunt ){
             plugins: {
                 src: [
                     "coffee/plugins.coffee",
+                    "coffee/accordion.coffee",
                     "coffee/dialog.coffee",
                     "coffee/tooltip.coffee"
                 ],
@@ -37,6 +38,7 @@ module.exports = function( grunt ){
             less: {
                 src: [
                     "less/plugins.less",
+                    "less/accordion.less",
                     "less/dialog.less",
                     "less/tooltip.less"
                 ],

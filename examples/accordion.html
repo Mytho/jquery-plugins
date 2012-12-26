@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>jQuery Plugin Accordion Examples</title>
+		<link rel="stylesheet" type="text/css" href="../plugins.min.css" />
+		<style type="text/css">
+			body { background-color:#eee; font: 16px Arial, "Helvetica Neue", Helvetica; }
+			a { display:block; text-align: center; }
+		</style>
+	</head>
+	<body>
+		<div class="accordion">
+			<a href="#item-1">Header item 1</a>
+			<div id="item-1">This is the content for item 1.</div>
+			<a href="#item-2">Header item 2</a>
+			<div id="item-2">This is the content for item 2.</div>
+			<a href="#item-3">Header item 3</a>
+			<div id="item-3">This is the content for item 3.</div>
+			<a href="#item-4">Header item 4</a>
+			<div id="item-4">This is the content for item 4.</div>
+			<a href="#item-5">Header item 5</a>
+			<div id="item-5">This is the content for item 5.</div>
+		</div>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" charset="utf8"></script>
+		<script type="text/javascript" src="../plugins.min.js" charset="utf8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".accordion").accordion();
+			});
+		</script>
+	</body>
+</html>
