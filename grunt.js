@@ -6,9 +6,9 @@ module.exports = function( grunt ){
                 "name": "T. Zengerink",
                 "email": "t.zengerink@gmail.com"
             },
-            "lisence": {
+            "license": {
                 "type": "MIT",
-                "url": "https://raw.github.com/Mytho/jquery-plugins/master/LISENCE.md"
+                "url": "https://raw.github.com/Mytho/jquery-plugins/master/LICENSE.md"
             }
         },
         meta: {
@@ -16,7 +16,7 @@ module.exports = function( grunt ){
                 " * <%= pkg.name %>\n" +
                 " * Author: <%= pkg.author.name %> (<%= pkg.author.email %>)\n" +
                 " * Copyright (c) <%= grunt.template.today('yyyy') %> <%= pkg.author.name %>\n" +
-                " * <%= pkg.lisence.type %> lisenced, <%= pkg.lisence.url %>\n" +
+                " * <%= pkg.license.type %> licensed, <%= pkg.license.url %>\n" +
                 " */"
         },
         coffee: {
