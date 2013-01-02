@@ -15,8 +15,8 @@ class Plugins.Accordion extends Plugins.Plugin
 
   # Activate a given element `el` by adding a class.
   activate: (el) ->
-    $(Plugins.cat @selector, " a").removeClass("active")
-    el.addClass("active")
+    $(Plugins.cat @selector, " a[href!=", el.attr("href"), "]").removeClass("active")
+    el.toggleClass("active")
 
   # Bind click event to the varous anchors in the accordion plugin.
   bind: ->
