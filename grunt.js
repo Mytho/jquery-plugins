@@ -31,6 +31,7 @@ module.exports = function( grunt ){
                     "coffee/plugins.coffee",
                     "coffee/accordion.coffee",
                     "coffee/dialog.coffee",
+                    "coffee/tabs.coffee",
                     "coffee/tooltip.coffee"
                 ],
                 dest: "build/plugins.coffee"
@@ -40,6 +41,7 @@ module.exports = function( grunt ){
                     "less/plugins.less",
                     "less/accordion.less",
                     "less/dialog.less",
+                    "less/tabs.less",
                     "less/tooltip.less"
                 ],
                 dest: "build/plugins.less"

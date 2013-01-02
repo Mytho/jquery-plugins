@@ -9,9 +9,9 @@
 #
 class Plugins.Accordion extends Plugins.Plugin
   defaults:
-    delay: 50
-    klass: "accordion"
-    slide: 250
+    delay: 50           # Delay used when toggling elements
+    klass: "accordion"  # Class of the DOM-element
+    slide: 250          # Animation speed of the slide effect
 
   # Activate a given element `el` by adding a class.
   activate: (el) ->

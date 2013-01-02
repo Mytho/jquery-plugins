@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>jQuery Plugin Tabs Examples</title>
+		<link rel="stylesheet" type="text/css" href="../plugins.min.css" />
+		<style type="text/css">
+			body { background-color: #eee; font: 16px Arial, "Helvetica Neue", Helvetica; }
+		</style>
+	</head>
+	<body>
+		<div class="tabs">
+			<ul class="bar">
+				<li><a href="#tab1">Tab 1</a></li>
+				<li><a href="#tab2">Tab 2</a></li>
+				<li><a href="#tab3">Tab 3</a></li>
+				<li><a href="#tab4">Tab 4</a></li>
+			</ul>
+			<div class="content">
+				<div id="tab1">This is some sample content for tab 1.</div>
+				<div id="tab2">This is some sample content for tab 2.</div>
+				<div id="tab3">This is some sample content for tab 3.</div>
+				<div id="tab4">This is some sample content for tab 4.</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" charset="utf8"></script>
+		<script type="text/javascript" src="../plugins.min.js" charset="utf8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".tabs").tabs();
+			});
+		</script>
+	</body>
+</html>
