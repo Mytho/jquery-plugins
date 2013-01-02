@@ -19,7 +19,7 @@
 			$(function(){
 				$(".dialog-invoker").dialog({
 					onCancel: function(){ alert("Canceled!"); },
-					onConfirm: function(){ alert("Confirmed!"); }
+					onConfirm: function(){ alert($(this).html()); }
 				});
 			});
 		</script>

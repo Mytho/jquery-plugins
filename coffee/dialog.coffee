@@ -8,7 +8,7 @@
 #
 #     $("div").dialog({
 #         onCancel: function(){ alert("Canceled!"); },
-#         onConfirm: function(){ alert("Confirmed!"); }
+#         onConfirm: function(){ alert($(this).html()); }
 #     });
 #
 class Plugins.Dialog extends Plugins.Plugin
@@ -56,19 +56,19 @@ class Plugins.Dialog extends Plugins.Plugin
   # Close the dialog window and call the `onCancel` configuration callback when 
   # done.
   cancel: ->
-    @config.onCancel?()
+    @config.onCancel?.apply(@invoker)
     @close()
 
   # Close the dialog window and call the `onClose` configuration callback when 
   # done.
   close: ->
-    @config.onClose?()
+    @config.onClose?.apply(@invoker)
     $(@selector).hide()
 
   # Close the dialog window and call the `onConfirm` configuration callback when 
   # done.
   confirm: ->
-    @config.onConfirm?()
+    @config.onConfirm?.apply(@invoker)
     @close()
 
   # Initialize the newly created Dialog plugin.
@@ -81,7 +81,7 @@ class Plugins.Dialog extends Plugins.Plugin
   open: ->
     $(@selector).show()
     @position()
-    @config.onOpen?()
+    @config.onOpen?.apply(@invoker)
 
   # Position the dialog on the screen.
   position: ->
