@@ -37,14 +37,14 @@ class Plugins.Message extends Plugins.Plugin
     at = @
     Plugins.delay @config.delay, ->
       $(at.selector).slideDown(at.config.speed)
-      at.config.onOpen?()
+      at.config.onOpen?.apply(at.target)
 
   # Method that executes the `onClose` configuration method.
   close: ->
     at = @
     Plugins.delay @config.delay, ->
       $(at.selector).slideUp(at.config.speed)
-      at.config.onClose?()
+      at.config.onClose?.apply(at.target)
 
 # Define the plugin as a jQuery-function.
 $.fn.message = (config) -> @.each -> new Plugins.Message config, $(@)
