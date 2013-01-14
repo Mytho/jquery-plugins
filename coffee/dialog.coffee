@@ -18,7 +18,7 @@ class Plugins.Dialog extends Plugins.Plugin
     contentClass: "dialog-content"  # Content DOM class
     headerText: "Confirm"           # Text for the dialog header
     invokeEvent: "click"            # Event that invokes the plugin
-    klass: "dialog"                 # Class of the DOM element
+    class: "dialog"                 # Class of the DOM element
     onCancel: -> return             # Callback on cancel
     onClose: -> return              # Callback on close
     onConfirm: -> return            # Callback on confirm
@@ -41,7 +41,7 @@ class Plugins.Dialog extends Plugins.Plugin
   build: ->
     content = @invoker.next(Plugins.cat ".", @config.contentClass).html()
     @invoker.next(Plugins.cat ".", @config.contentClass).hide()
-    Plugins.create("div", @config.klass).attr("id", @elId).appendTo("body").hide()
+    Plugins.create("div", @config.class).attr("id", @elId).appendTo("body").hide()
     Plugins.create("div", "overlay").appendTo(@selector)
     Plugins.create("div", "window").appendTo(@selector)
     Plugins.create("div", "header").appendTo(Plugins.cat @selector, " .window")

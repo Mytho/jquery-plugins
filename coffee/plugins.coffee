@@ -31,14 +31,14 @@ Plugins.create = (type, klass) ->
 # plugin.
 class Plugins.Plugin
   defaults:
-    klass: "plugin" # Class of the DOM-element
+    class: "plugin" # Class of the DOM-element
 
   # Construct a new Plugin, while providing  a `config` and `invoker` object.
   constructor: (config, invoker) ->
     @id = ++uniq
     @config = $.extend {}, @defaults, config
     @invoker = invoker
-    @elId = Plugins.cat @config.klass, "-", @id
+    @elId = Plugins.cat @config.class, "-", @id
     @selector = Plugins.cat "#", @elId
     @init()
 

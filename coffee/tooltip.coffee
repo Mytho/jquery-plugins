@@ -14,7 +14,7 @@ class Plugins.Tooltip extends Plugins.Plugin
     fade:  100                     # Fade time in microseconds
     invokeHideEvent: "mouseleave"  # Event that hides the Tooltip
     invokeShowEvent: "mouseenter"  # Event that shows the Tooltip
-    klass: "tooltip"               # Class of the DOM-element
+    class: "tooltip"               # Class of the DOM-element
     margin: 3                      # Margin between Tooltip and invoker
     position: "top"                # Position of Tooltip relative to invoker
   timer: false
@@ -40,7 +40,7 @@ class Plugins.Tooltip extends Plugins.Plugin
 
   # Build new dialog DOM-element and append it to the HTML body.
   build: ->
-    Plugins.create("div", @config.klass).attr("id", @elId).appendTo("body").hide()
+    Plugins.create("div", @config.class).attr("id", @elId).appendTo("body").hide()
     Plugins.create("div", "arrow").appendTo(@selector)
     Plugins.create("div", "content").html(@invoker.attr @config.attr).appendTo(@selector)
     @invoker.attr @config.attr, ""
@@ -83,7 +83,7 @@ class Plugins.Tooltip extends Plugins.Plugin
     at = @
     @position()
     @timer = Plugins.delay at.config.delay, -> 
-      $(Plugins.cat ".", at.config.klass).fadeOut at.config.fade
+      $(Plugins.cat ".", at.config.class).fadeOut at.config.fade
       $(at.selector).fadeIn at.config.fade
 
 # Define the plugin as a jQuery-function.

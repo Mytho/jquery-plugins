@@ -9,7 +9,7 @@
 #
 class Plugins.Tabs extends Plugins.Plugin
   defaults:
-    klass: "tabs"  # Class of the DOM-element
+    class: "tabs"  # Class of the DOM-element
 
   # Activate the content of a given tab element.
   activate: (el) ->
