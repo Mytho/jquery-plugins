@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>jQuery Plugin Message Examples</title>
+		<link rel="stylesheet" type="text/css" href="../plugins.min.css" />
+		<style type="text/css">
+			body { background-color: #eee; font: 16px Arial, "Helvetica Neue", Helvetica; }
+		</style>
+	</head>
+	<body>
+		<div id="page">
+			<h1>Some sample example page header</h1>
+			<p>Some page content that also serves as an example.</p>
+		</div>
+		<div class="alert-example">Some example message text.</div>
+		<div class="success-example">Some example success text.</div>
+		<div class="warning-example">Some example warning text.</div>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" charset="utf8"></script>
+		<script type="text/javascript" src="../plugins.min.js" charset="utf8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".alert-example").message({
+					onClose: function(){
+						console.log("Alert message closed!");
+					},
+					onOpen: function(){
+						console.log("Alert message opened!");
+					},
+					type: "alert"
+				});
+				$(".success-example").message({
+					onClose: function(){
+						console.log("Success message closed!");
+					},
+					onOpen: function(){
+						console.log("Success message opened!");
+					},
+					type: "success"
+				});
+				$(".warning-example").message({
+					onClose: function(){
+						console.log("Warning message closed!");
+					},
+					onOpen: function(){
+						console.log("Warning message opened!");
+					},
+					type: "warning"
+				});
+			});
+		</script>
+	</body>
+</html>
