@@ -35,12 +35,12 @@ class Plugins.Dialog extends Plugins.Plugin
         at.confirm.apply at if e.keyCode is 13
         at.cancel.apply at if e.keyCode is 27
     $(win).on "resize scroll", -> at.position.apply at
-    @invoker.on at.config.invokeEvent, -> at.open.apply at
+    @target.on at.config.invokeEvent, -> at.open.apply at
 
   # Build new dialog DOM-element and append it to the HTML body.
   build: ->
-    content = @invoker.next(Plugins.cat ".", @config.contentClass).html()
-    @invoker.next(Plugins.cat ".", @config.contentClass).hide()
+    content = @target.next(Plugins.cat ".", @config.contentClass).html()
+    @target.next(Plugins.cat ".", @config.contentClass).hide()
     Plugins.create("div", @config.class).attr("id", @elId).appendTo("body").hide()
     Plugins.create("div", "overlay").appendTo(@selector)
     Plugins.create("div", "window").appendTo(@selector)
@@ -56,19 +56,19 @@ class Plugins.Dialog extends Plugins.Plugin
   # Close the dialog window and call the `onCancel` configuration callback when 
   # done.
   cancel: ->
-    @config.onCancel?.apply(@invoker)
+    @config.onCancel?.apply(@target)
     @close()
 
   # Close the dialog window and call the `onClose` configuration callback when 
   # done.
   close: ->
-    @config.onClose?.apply(@invoker)
+    @config.onClose?.apply(@target)
     $(@selector).hide()
 
   # Close the dialog window and call the `onConfirm` configuration callback when 
   # done.
   confirm: ->
-    @config.onConfirm?.apply(@invoker)
+    @config.onConfirm?.apply(@target)
     @close()
 
   # Initialize the newly created Dialog plugin.
@@ -81,7 +81,7 @@ class Plugins.Dialog extends Plugins.Plugin
   open: ->
     $(@selector).show()
     @position()
-    @config.onOpen?.apply(@invoker)
+    @config.onOpen?.apply(@target)
 
   # Position the dialog on the screen.
   position: ->

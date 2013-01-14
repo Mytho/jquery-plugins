@@ -27,17 +27,17 @@ Plugins.create = (type, klass) ->
 #
 # The Plugin class can be extended to create a custom plugin. A configuration
 # object `config` should be provided to configure the plugin and an optional
-# `invoker` jQuery-object can be provided to know which element invoked the 
+# `target` jQuery-object can be provided to know which element invoked the 
 # plugin.
 class Plugins.Plugin
   defaults:
     class: "plugin" # Class of the DOM-element
 
-  # Construct a new Plugin, while providing  a `config` and `invoker` object.
-  constructor: (config, invoker) ->
+  # Construct a new Plugin, while providing  a `config` and `target` object.
+  constructor: (config, target) ->
     @id = ++uniq
     @config = $.extend {}, @defaults, config
-    @invoker = invoker
+    @target = target
     @elId = Plugins.cat @config.class, "-", @id
     @selector = Plugins.cat "#", @elId
     @init()

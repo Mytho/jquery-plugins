@@ -29,7 +29,7 @@ class Plugins.Accordion extends Plugins.Plugin
   # Initialize the accordion plugin by hiding all elements and binding any
   # necessary events to it's elements.
   init: ->
-    $(@invoker).attr("id", @elId)
+    $(@target).attr("id", @elId)
     $(Plugins.cat @selector, " div").hide()
     @bind()
 

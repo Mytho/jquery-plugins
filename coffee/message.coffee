@@ -25,11 +25,11 @@ class Plugins.Message extends Plugins.Plugin
   # method.
   init: ->
     at = @
-    @invoker.hide()
+    @target.hide()
     Plugins.create("div").attr("id", @config.containerId).appendTo("body") if not $(Plugins.cat "#", @config.containerId).length
-    Plugins.create("div", Plugins.cat "message message-", @config.type).html(@invoker.html()).attr("id", @elId).on("click", -> at.close.apply(at)).hide().appendTo(Plugins.cat "#", @config.containerId)
+    Plugins.create("div", Plugins.cat "message message-", @config.type).html(@target.html()).attr("id", @elId).on("click", -> at.close.apply(at)).hide().appendTo(Plugins.cat "#", @config.containerId)
     Plugins.create("div", "close").html("×").appendTo(@selector)
-    @invoker.remove()
+    @target.remove()
     @open()
 
   # Method that executes the `onOpen` configuration method.
