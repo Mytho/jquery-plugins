@@ -1,53 +1,53 @@
-@red-light:    #f2dede;
-@red-medium:   (@red-light - #222);
-@red-dark:     #b94a48;
-@green-light:  #dff0d8;
+@red-light: #f2dede;
+@red-medium: (@red-light - #222);
+@red-dark: #b94a48;
+@green-light: #dff0d8;
 @green-medium: (@green-light - #222);
-@green-dark:   #468847;
+@green-dark: #468847;
 
 div#messages-container {
   .plugin;
 
-  left:     0;
-  margin:   0;
-  padding:  0;
+  left: 0;
+  margin: 0;
+  padding: 0;
   position: absolute;
-  top:      0;
-  width:    100%;
+  top: 0;
+  width: 100%;
 
   div.message {
     .border-radius;
     .drop-shadow;
     .font(16px);
 
-    cursor:  pointer;
-    margin:  8px 8px;
+    cursor: pointer;
+    margin: 8px 8px;
     padding: 10px;
 
     div.close {
       .font(18px, @grey-dark);
 
       display: block;
-      float:   right;
+      float: right;
       padding: 0 4px;
     }
   }
 
   div.message-warning {
     background-color: @red-light;
-    border:           1px solid @red-medium;
-    color:            @red-dark;
+    border: 1px solid @red-medium;
+    color: @red-dark;
   }
 
   div.message-success {
     background-color: @green-light;
-    border:           1px solid @green-medium;
-    color:            @green-dark;
+    border: 1px solid @green-medium;
+    color: @green-dark;
   }
 
   div.message-alert {
     background-color: @grey-light;
-    border:           1px solid @grey-medium;
-    color:            @grey-dark;
+    border: 1px solid @grey-medium;
+    color: @grey-dark;
   }
 }
