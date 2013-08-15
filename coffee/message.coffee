@@ -5,30 +5,30 @@
 #
 # *Example usage in your JavaScript:*
 #
-#     $("div").message({
-#         onClose: function(){ alert("Closed!"); },
-#         onOpen: function(){ alert("Opened!"); },
-#         type: "warning"
+#     $('div').message({
+#         onClose: function(){ alert('Closed!'); },
+#         onOpen: function(){ alert('Opened!'); },
+#         type: 'warning'
 #     });
 #
 class Plugins.Message extends Plugins.Plugin
   defaults:
-    class: "message"
-    containerId: "messages-container"
+    class: 'message'
+    containerId: 'messages-container'
     delay: 100
     speed: 250
     onClose: -> false
     onOpen: -> false
-    type: "alert"
+    type: 'alert'
 
   # Initialize the message by building the DOM-element and calling the open
   # method.
   init: ->
     at = @
     @target.hide()
-    Plugins.create("div").attr("id", @config.containerId).appendTo("body") if not $(Plugins.cat "#", @config.containerId).length
-    Plugins.create("div", Plugins.cat "message message-", @config.type).html(@target.html()).attr("id", @elId).on("click", -> at.close.apply(at)).hide().appendTo(Plugins.cat "#", @config.containerId)
-    Plugins.create("div", "close").html("×").appendTo(@selector)
+    Plugins.create('div').attr('id', @config.containerId).appendTo('body') if not $(Plugins.cat '#', @config.containerId).length
+    Plugins.create('div', Plugins.cat 'message message-', @config.type).html(@target.html()).attr('id', @elId).on('click', -> at.close.apply(at)).hide().appendTo(Plugins.cat '#', @config.containerId)
+    Plugins.create('div', 'close').html('×').appendTo(@selector)
     @target.remove()
     @open()
 
